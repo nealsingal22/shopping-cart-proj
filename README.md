@@ -1,6 +1,4 @@
-# shopping-cart-proj
-
-# my project
+# Shopping Cart Project
 
 ## Installation
 Use the GitHub.com online interface to create a new remote project repository called something like "shopping-cart-proj". Also add a "README.md" file during the repo creation process. After this process is complete, you should be able to view the repo on GitHub.com at an address like https://github.com/YOUR_USERNAME/shopping-cart-proj.
@@ -118,7 +116,17 @@ conda activate shopping-env
 ## Usage
 In order to run the program and successfully use it please enter the 
 follwing in your command line promopt:
+
 ```sh
 python shopping_cart.py
 ```
-At this point your code should be running and the program should be working
+At this point your code should be running and the program should be working.
+The code can be broken down into the following sections to make it easier to understand:
+1) Products dictionary contains all the items available at the grocery store
+2) to_usd coverts a price to the proper format with a $ sign
+3) chech_valid_input makes sure the product id exists in the products dictionary
+and if it doesn't asks the user to try again
+4) Print the header of the receipt along with a time using the datetime function
+5) Loop through all the selected ids and print their name and price
+6) Print subtotal, tax, total, and a friendly message to come shop again
+

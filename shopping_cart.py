@@ -44,6 +44,7 @@ def check_valid_input(product_id):
     for num in range(1, len(products)+1):
         if (str(num) == str(product_id)):
             selected_ids.append(product_id)
+            #Tried to use a break instead of count but the break didn't seem to be working
             count += 1
     if count == 0:
         new_id = input("Hey, are you sure that product identifier is correct? Please try again: ") 
