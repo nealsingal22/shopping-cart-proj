@@ -21,6 +21,14 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+#Input from user
+
+product_id = input("Please input a product identifier: ")
+matching_products = [p for p in products if str(p["id"]) == str(product_id)]
+matching_product = matching_products[0]
+print("Selected Product: " + matching_product["name"] + " " + str(matching_product["price"]))
+
+
 def to_usd(my_price):
     """
     Converts a numeric value to usd-formatted string, for printing and display purposes.
@@ -32,5 +40,3 @@ def to_usd(my_price):
     return f"${my_price:,.2f}" #> $12,000.71
 
 # TODO: write some Python code here to produce the desired output
-
-print(products)
