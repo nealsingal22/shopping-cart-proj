@@ -23,7 +23,8 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-#Input from user and done keyword break point
+
+#Used screencast to develop the structure of the code
 
 total_price = 0
 selected_ids = []
@@ -46,7 +47,7 @@ def check_valid_input(product_id):
             selected_ids.append(product_id)
             count += 1
     if count == 0:
-        new_id = input("Sorry that's not a valid product identifier, please try again: ") 
+        new_id = input("Hey, are you sure that product identifier is correct? Please try again: ") 
         check_valid_input(new_id)
 
 while True:
@@ -56,26 +57,13 @@ while True:
     else:
         check_valid_input(product_id)
 
-    #Handling an invalid product identifier
-    #def check_valid_input(product_id):
-    #for (id in correct_ids):
-    #    if (product_id == id):
-    #        selected_ids.append(product_id)
-    #    else:
-    #        product_id = input("Sorry that's not a valid product identifier, please try again: ")
-
-    #elif:
-    #    product_id = input("Sorry that's not a valid product identifier, please try again: ")
-    #    if 
-    #else:
-    #    selected_ids.append(product_id)
-
 print("                   ")
 print("NEALS GROCERY EMPORIUM")
 print("WWW.NEALS-GROCERY-EMPORIUM.COM")
 
+# Source Code: https://stackoverflow.com/questions/1759455/how-can-i-account-for-period-am-pm-using-strftime
 now = datetime.datetime.now()
-time = now.strftime("%H: %M: %p")
+time = now.strftime("%I:%M %p")
 day = datetime.date.today()
 
 print("----------------------------------")
@@ -101,4 +89,4 @@ final_price = to_usd(tax + total_price)
 print("TOTAL: " + final_price)
 print("----------------------------------")
 print("THANKS FOR SHOPPING AT NEALS GROCERY EMPORIUM")
-
+print("----------------------------------")
