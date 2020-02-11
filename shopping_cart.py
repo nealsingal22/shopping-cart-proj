@@ -38,12 +38,37 @@ def to_usd(my_price):
     """
     return f"${my_price:,.2f}" #> $12,000.71
 
+#Handles Invalid Inputs
+def check_valid_input(product_id):
+    count = 0
+    for num in range(1, len(products)+1):
+        if (str(num) == str(product_id)):
+            selected_ids.append(product_id)
+            count += 1
+    if count == 0:
+        new_id = input("Sorry that's not a valid product identifier, please try again: ") 
+        check_valid_input(new_id)
+
 while True:
     product_id = input("Please input a product identifier or DONE when you are finished: ")
     if product_id == "DONE":
         break
     else:
-        selected_ids.append(product_id)
+        check_valid_input(product_id)
+
+    #Handling an invalid product identifier
+    #def check_valid_input(product_id):
+    #for (id in correct_ids):
+    #    if (product_id == id):
+    #        selected_ids.append(product_id)
+    #    else:
+    #        product_id = input("Sorry that's not a valid product identifier, please try again: ")
+
+    #elif:
+    #    product_id = input("Sorry that's not a valid product identifier, please try again: ")
+    #    if 
+    #else:
+    #    selected_ids.append(product_id)
 
 print("                   ")
 print("NEALS GROCERY EMPORIUM")
@@ -77,4 +102,3 @@ print("TOTAL: " + final_price)
 print("----------------------------------")
 print("THANKS FOR SHOPPING AT NEALS GROCERY EMPORIUM")
 
-# TODO: write some Python code here to produce the desired output
