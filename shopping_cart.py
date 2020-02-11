@@ -1,3 +1,5 @@
+import datetime
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -26,23 +28,6 @@ products = [
 total_price = 0
 selected_ids = []
 
-while True:
-    product_id = input("Please input a product identifier: ")
-    if product_id == "DONE":
-        break
-    else:
-        selected_ids.append(product_id)
-
-for product_id in selected_ids:
-    matching_products = [p for p in products if str(p["id"]) == str(product_id)]
-    matching_product = matching_products[0]
-    total_price += matching_product["price"]
-    print("Selected Product: " + matching_product["name"] + " " + str(matching_product["price"]))
-
-print("Total Price: " +str(total_price))
-dc_tax = 0.02
-
-
 def to_usd(my_price):
     """
     Converts a numeric value to usd-formatted string, for printing and display purposes.
@@ -52,5 +37,41 @@ def to_usd(my_price):
     Returns: $4,000.44
     """
     return f"${my_price:,.2f}" #> $12,000.71
+
+while True:
+    product_id = input("Please input a product identifier or DONE when you are finished: ")
+    if product_id == "DONE":
+        break
+    else:
+        selected_ids.append(product_id)
+
+print("                   ")
+print("CLEAN EATS GROCERY")
+print("WWW.CLEAN-EATS-GROCERY.COM")
+
+now = datetime.datetime.now()
+time = now.strftime("%H: %M: %p")
+day = datetime.date.today()
+
+print("----------------------------------")
+print("CHECK OUT AT: " +str(day) + " " + time)
+print("----------------------------------")
+
+for product_id in selected_ids:
+    matching_products = [p for p in products if str(p["id"]) == str(product_id)]
+    matching_product = matching_products[0]
+    total_price += matching_product["price"]
+    print ("Selected Product:" + matching_product["name"] + " " + "(" + to_usd(matching_product["price"]) + ")" )
+
+print("Subtotal: " +to_usd(total_price))
+#Tax Rate from Internet: http://www.tax-rates.org/district_of_columbia/sales-tax
+tax_rate = .0575
+tax = total_price*tax_rate
+print("TAX: "+ to_usd(tax))
+
+#total payment due
+final_price = to_usd(tax + total_price)
+print("TOTAL: " + final_price)
+print("----------------------------------------------------------------------")
 
 # TODO: write some Python code here to produce the desired output
