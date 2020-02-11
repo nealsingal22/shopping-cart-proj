@@ -24,19 +24,24 @@ products = [
 #Input from user and done keyword break point
 
 total_price = 0
+selected_ids = []
 
 while True:
     product_id = input("Please input a product identifier: ")
     if product_id == "DONE":
         break
     else:
-        matching_products = [p for p in products if str(p["id"]) == str(product_id)]
-        matching_product = matching_products[0]
-        total_price += matching_product["price"]
-        print("Selected Product: " + matching_product["name"] + " " + str(matching_product["price"]))
+        selected_ids.append(product_id)
 
+for product_id in selected_ids:
+    matching_products = [p for p in products if str(p["id"]) == str(product_id)]
+    matching_product = matching_products[0]
+    total_price += matching_product["price"]
+    print("Selected Product: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 print("Total Price: " +str(total_price))
+dc_tax = 0.02
+
 
 def to_usd(my_price):
     """
