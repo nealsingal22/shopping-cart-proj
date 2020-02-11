@@ -23,7 +23,6 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-
 #Used screencast to develop the structure of the code
 
 total_price = 0
@@ -57,7 +56,8 @@ while True:
     else:
         check_valid_input(product_id)
 
-print("                   ")
+print("                      ")
+print("----------------------------------")
 print("NEALS GROCERY EMPORIUM")
 print("WWW.NEALS-GROCERY-EMPORIUM.COM")
 
@@ -88,5 +88,5 @@ print("TAX: "+ to_usd(tax))
 final_price = to_usd(tax + total_price)
 print("TOTAL: " + final_price)
 print("----------------------------------")
-print("THANKS FOR SHOPPING AT NEALS GROCERY EMPORIUM")
+print("THANKS FOR SHOPPING, SEE YOU AGAIN SOON!")
 print("----------------------------------")
