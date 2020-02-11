@@ -46,8 +46,8 @@ while True:
         selected_ids.append(product_id)
 
 print("                   ")
-print("CLEAN EATS GROCERY")
-print("WWW.CLEAN-EATS-GROCERY.COM")
+print("NEALS GROCERY EMPORIUM")
+print("WWW.NEALS-GROCERY-EMPORIUM.COM")
 
 now = datetime.datetime.now()
 time = now.strftime("%H: %M: %p")
@@ -56,15 +56,17 @@ day = datetime.date.today()
 print("----------------------------------")
 print("CHECK OUT AT: " +str(day) + " " + time)
 print("----------------------------------")
+print("SELECTED PRODUCTS: ")
 
 for product_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(product_id)]
     matching_product = matching_products[0]
     total_price += matching_product["price"]
-    print ("Selected Product:" + matching_product["name"] + " " + "(" + to_usd(matching_product["price"]) + ")" )
+    print ("... " + matching_product["name"] + " " + "(" + to_usd(matching_product["price"]) + ")" )
 
-print("Subtotal: " +to_usd(total_price))
-#Tax Rate from Internet: http://www.tax-rates.org/district_of_columbia/sales-tax
+print("----------------------------------")
+print("SUBTOTAL: " +to_usd(total_price))
+#DC Tax Rate from Internet: http://www.tax-rates.org/district_of_columbia/sales-tax
 tax_rate = .0575
 tax = total_price*tax_rate
 print("TAX: "+ to_usd(tax))
@@ -72,6 +74,7 @@ print("TAX: "+ to_usd(tax))
 #total payment due
 final_price = to_usd(tax + total_price)
 print("TOTAL: " + final_price)
-print("----------------------------------------------------------------------")
+print("----------------------------------")
+print("THANKS FOR SHOPPING AT NEALS GROCERY EMPORIUM")
 
 # TODO: write some Python code here to produce the desired output
