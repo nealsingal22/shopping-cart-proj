@@ -23,10 +23,14 @@ products = [
 
 #Input from user
 
-product_id = input("Please input a product identifier: ")
-matching_products = [p for p in products if str(p["id"]) == str(product_id)]
-matching_product = matching_products[0]
-print("Selected Product: " + matching_product["name"] + " " + str(matching_product["price"]))
+while True:
+    product_id = input("Please input a product identifier: ")
+    if product_id == "DONE":
+        break
+    else:
+        matching_products = [p for p in products if str(p["id"]) == str(product_id)]
+        matching_product = matching_products[0]
+        print("Selected Product: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 
 def to_usd(my_price):
